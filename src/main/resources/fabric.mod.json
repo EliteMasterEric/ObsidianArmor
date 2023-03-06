@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "id": "obsidian-armor",
+  "version": "1.0.0-fabric",
+
+  "name": "Obsidian Armor",
+  "description": "My First Epic Awesome Mine Craft Mod",
+  "authors": [
+    "EliteMasterEric"
+  ],
+  "contact": {
+    "homepage": "https://www.elitemastereric.com/",
+    "sources": "https://github.com/EliteMasterEric/ObsidianArmor",
+    "issues": "https://github.com/EliteMasterEric/ObsidianArmor/issues"
+  },
+
+  "license": "MIT",
+  "icon": "assets/obsidian-armor/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.elitemastereric.obsidianarmor.ObsidianArmorMod"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.14.14",
+    "fabric-api": "*",
+    "minecraft": "~1.19.3",
+    "java": ">=17"
+  }
+}
