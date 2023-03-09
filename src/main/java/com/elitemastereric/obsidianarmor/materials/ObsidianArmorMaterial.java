@@ -1,11 +1,12 @@
 package com.elitemastereric.obsidianarmor.materials;
 
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.ArmorMaterials;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.Items;
 
 public class ObsidianArmorMaterial implements ArmorMaterial {
     private static final String NAME = "obsidian";
@@ -13,22 +14,22 @@ public class ObsidianArmorMaterial implements ArmorMaterial {
     private static final int[] DURABILITY = new int[] {137, 158, 168, 116}; // Durability of Boots, Leggings, Chestplate, Helmet
     private static final int[] PROTECTION = new int[] {2, 4, 6, 2}; // Armor points of Boots, Leggings, Chestplate, Helmet
     private static final int ENCHANTABILITY = 20;
-    private static final SoundEvent EQUIP_SOUND = SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
-    private static final Ingredient REPAIR_INGREDIENT = Ingredient.ofItems(Items.OBSIDIAN);
+    private static final SoundEvent EQUIP_SOUND = SoundEvents.ARMOR_EQUIP_DIAMOND;
+    private static final Ingredient REPAIR_INGREDIENT = Ingredient.of(Items.OBSIDIAN);
     private static final float KNOCKBACK_RESISTANCE = 0.0f;
 
     @Override
-    public int getDurability(EquipmentSlot slot) {
-        return DURABILITY[slot.getEntitySlotId()];
+    public int getDurabilityForSlot(EquipmentSlot slot) {
+        return DURABILITY[slot.getIndex()];
     }
 
     @Override
-    public int getProtectionAmount(EquipmentSlot slot) {
-        return PROTECTION[slot.getEntitySlotId()];
+    public int getDefenseForSlot(EquipmentSlot slot) {
+        return PROTECTION[slot.getIndex()];
     }
 
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return ENCHANTABILITY;
     }
 
@@ -56,6 +57,4 @@ public class ObsidianArmorMaterial implements ArmorMaterial {
     public float getKnockbackResistance() {
         return KNOCKBACK_RESISTANCE;
     }
-    
-    
 }

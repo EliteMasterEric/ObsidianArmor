@@ -6,22 +6,23 @@ import com.elitemastereric.obsidianarmor.ObsidianArmorMod;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.item.ArmorItem;
-import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.AxeItem;
-import net.minecraft.item.HoeItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.PickaxeItem;
-import net.minecraft.item.ShovelItem;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.Rarity;
+
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.HoeItem;
+import net.minecraft.world.item.PickaxeItem;
+import net.minecraft.world.item.ShovelItem;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Tier; // ToolMaterial
+import net.minecraft.world.item.Rarity;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries; // Registries
+import net.minecraft.resources.ResourceLocation; // Identifier
+import net.minecraft.world.item.CreativeModeTab; // ItemGroup
 
 /**
  * A static container for all of our items.
@@ -32,7 +33,7 @@ public class Items {
     // FabricItemSettings is an extension of this which allows setting an equipment slot and custom damage value handler.
 
     // Tools
-    public static final ToolMaterial OBSIDIAN_TOOL_MATERIAL = new ObsidianToolMaterial();
+    public static final Tier OBSIDIAN_TOOL_MATERIAL = new ObsidianToolMaterial();
     public static final Item OBSIDIAN_PICKAXE = new PickaxeItem(OBSIDIAN_TOOL_MATERIAL, 1, -2.8f, new FabricItemSettings().rarity(Rarity.RARE).fireproof());
     public static final Item OBSIDIAN_AXE = new AxeItem(OBSIDIAN_TOOL_MATERIAL, -6.0f, -3.0f, new FabricItemSettings().rarity(Rarity.RARE).fireproof());
     public static final Item OBSIDIAN_SHOVEL = new ShovelItem(OBSIDIAN_TOOL_MATERIAL, 1.5f, -3.0f, new FabricItemSettings().rarity(Rarity.RARE).fireproof());
@@ -47,7 +48,7 @@ public class Items {
     public static final Item OBSIDIAN_BOOTS = new ArmorItem(OBSIDIAN_ARMOR_MATERIAL, EquipmentSlot.FEET, new FabricItemSettings().rarity(Rarity.RARE).fireproof());
 
     // Item Groups
-    public static final ItemGroup ITEM_GROUP = FabricItemGroup.builder(new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_armor"))
+    public static final CreativeModeTab ITEM_GROUP = FabricItemGroup.builder(new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_armor"))
         .icon(() -> new ItemStack(OBSIDIAN_CHESTPLATE))
         .build();
 
@@ -55,29 +56,29 @@ public class Items {
         // Add each of our items to the item registry.
 
         // Tools
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_pickaxe"), OBSIDIAN_PICKAXE);
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_axe"), OBSIDIAN_AXE);
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_shovel"), OBSIDIAN_SHOVEL);
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_sword"), OBSIDIAN_SWORD);
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_hoe"), OBSIDIAN_HOE);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_pickaxe"), OBSIDIAN_PICKAXE);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_axe"), OBSIDIAN_AXE);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_shovel"), OBSIDIAN_SHOVEL);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_sword"), OBSIDIAN_SWORD);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_hoe"), OBSIDIAN_HOE);
 
         // Armor
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_helmet"), OBSIDIAN_HELMET);
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_chestplate"), OBSIDIAN_CHESTPLATE);
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_leggings"), OBSIDIAN_LEGGINGS);
-        Registry.register(Registries.ITEM, new Identifier(ObsidianArmorMod.MOD_ID, "obsidian_boots"), OBSIDIAN_BOOTS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_helmet"), OBSIDIAN_HELMET);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_chestplate"), OBSIDIAN_CHESTPLATE);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_leggings"), OBSIDIAN_LEGGINGS);
+        Registry.register(BuiltInRegistries.ITEM, new ResourceLocation(ObsidianArmorMod.MOD_ID, "obsidian_boots"), OBSIDIAN_BOOTS);
 
         ItemGroupEvents.modifyEntriesEvent(ITEM_GROUP).register(content -> {
-            content.add(OBSIDIAN_AXE);
-            content.add(OBSIDIAN_PICKAXE);
-            content.add(OBSIDIAN_SHOVEL);
-            content.add(OBSIDIAN_SWORD);
-            content.add(OBSIDIAN_HOE);
+            content.accept(OBSIDIAN_AXE);
+            content.accept(OBSIDIAN_PICKAXE);
+            content.accept(OBSIDIAN_SHOVEL);
+            content.accept(OBSIDIAN_SWORD);
+            content.accept(OBSIDIAN_HOE);
 
-            content.add(OBSIDIAN_HELMET);
-            content.add(OBSIDIAN_CHESTPLATE);
-            content.add(OBSIDIAN_LEGGINGS);
-            content.add(OBSIDIAN_BOOTS);
+            content.accept(OBSIDIAN_HELMET);
+            content.accept(OBSIDIAN_CHESTPLATE);
+            content.accept(OBSIDIAN_LEGGINGS);
+            content.accept(OBSIDIAN_BOOTS);
         });
     }
 }
