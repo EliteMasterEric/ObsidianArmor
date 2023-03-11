@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "obsidian-armor",
+  "id": "obsidianarmor",
   "version": "1.1.0-fabric.1.16.5",
 
   "name": "Obsidian Armor",
@@ -13,7 +13,7 @@
   },
 
   "license": "MIT",
-  "icon": "assets/obsidian-armor/icon.png",
+  "icon": "assets/obsidianarmor/icon.png",
 
   "environment": "*",
   "entrypoints": {
